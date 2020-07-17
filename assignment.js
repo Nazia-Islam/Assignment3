@@ -5,14 +5,10 @@ function feetToMile(value_in_feet){
     return "Distance can't be negative number."
   }
   else{
-    let value_in_mile = value_in_feet/5280;
+    var value_in_mile = value_in_feet/5280;
     return value_in_mile;
   }
 }
-
-let converted_in_mile = feetToMile(50000);
-console.log("__________Output of feetToMile ______________");
-console.log(converted_in_mile);
 
 
 //_________________Wood Calculator________________
@@ -28,10 +24,6 @@ function woodCalculator(no_of_chair,no_of_table,no_of_bed){
     return no_of_chair*unit_wood_chair + no_of_table*unit_wood_table + no_of_bed*unit_wood_bed;
   }
 }
-
-let total_amount_of_wood = woodCalculator(2,-1,1);
-console.log("__________Output of woodCalculator ______________");
-console.log(total_amount_of_wood);
 
 
 //_______________ Brick Calculator_______________________
@@ -52,7 +44,7 @@ function brickCalculator(no_of_stories){
       amount_of_bricks = bricks_for_upperTen+bricks_for_tenStoried;
       return amount_of_bricks;
   }
-  else if(no_of_stories>20){
+  else if(no_of_stories > 20){
     const bricks_for_twentyStoried = (1000*15*10)+(1000*12*10);
     let stories_upperTwenty = no_of_stories-20;
     let bricks_for_upperTwenty = 1000*10*stories_upperTwenty;
@@ -61,38 +53,48 @@ function brickCalculator(no_of_stories){
   }
 }
 
-let total_bricks_needed=brickCalculator(-21);
-console.log("__________Output of brickCalculator______________");
-console.log(total_bricks_needed);
 
 //______________________Tiny Friends______________________
 
 function tinyFriend(...friends){
   let output_name = [];
-if(friends.length > 1){
-  let min_length_of_name = friends[0].length;
-  output_name[0]=friends[0];
-  for(let i=1;i<friends.length;i++){
-    if(friends[i].length > 0){
-      let length_of_name=friends[i].length;
-      if(length_of_name<min_length_of_name){
-        min_length_of_name=length_of_name;
-        let output_length=output_name.length;
-        output_name.splice(0,output_length);
-        output_name[0]=friends[i]; 
-      }
-      else if(length_of_name==min_length_of_name){
-        output_name.push(friends[i]);
+  if(friends.length > 1){
+    let min_length_of_name = friends[0].length;
+    output_name[0]=friends[0];
+    for(let i=1;i<friends.length;i++){
+      if(friends[i].length > 0){
+        let length_of_name=friends[i].length;
+        if(length_of_name<min_length_of_name){
+          min_length_of_name=length_of_name;
+          let output_length=output_name.length;
+          output_name.splice(0,output_length);
+          output_name[0]=friends[i]; 
+        }
+        else if(length_of_name==min_length_of_name){
+          output_name.push(friends[i]);
+        }
       }
     }
   }
-}
-else{
-  output_name = friends;
-}
-return output_name;
+  else{
+    output_name = friends;
+  }
+  return output_name;
 }
 
-let name=tinyFriend("Maimoona","mim","Roy","Xu");
+
+let converted_in_mile = feetToMile(50000);
+console.log("__________Output of feetToMile ______________");
+console.log(converted_in_mile);
+
+let total_amount_of_wood = woodCalculator( 2, 11, 1 );
+console.log("__________Output of woodCalculator ______________");
+console.log(total_amount_of_wood);
+
+let total_bricks_needed=brickCalculator(21);
+console.log("__________Output of brickCalculator______________");
+console.log(total_bricks_needed);
+
+let name=tinyFriend("Maimoona","mim","Roy","Xux");
 console.log("__________Output of tinyFriends______________");
 console.log(name);
